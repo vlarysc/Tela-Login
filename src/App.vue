@@ -9,9 +9,8 @@
           width="250"
           height="100"
         />
-        <RedesSociais />       
         <div class="email" nome="email">
-          <label>E-mail:</label>
+          <label>E-mail: </label>
           <input          
             type="email"
             v-model="email"
@@ -30,6 +29,11 @@
         </div>
         <button type="submit" @click="entrar">Entrar</button>
         
+
+        <br>
+
+        <RedesSociais />  
+
       </form>
     </div>
     <div class="container-logado" v-else>
@@ -93,12 +97,9 @@ label {
   font-weight: 600;
   width: 52px;
   display: inline-block;
-}
-
-a {
-  color: #333;
-  font-size: 14px;
-  text-decoration: none;
+  margin: 0px 10px 10px 45px;
+  text-align: initial;
+  width: 100%;
 }
 
 
@@ -117,6 +118,7 @@ button {
   background: -webkit-linear-gradient(to right, #f9d423, #ff4e50);
 
   background: linear-gradient(to right, #f9d423, #ff4e50);
+  margin: 10px 0;
 }
 
 button:active {
@@ -139,7 +141,7 @@ form {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: 20px 30px 30px;
+  padding: 20px 30px 40px;
   text-align: center;
 }
 .senha {
@@ -161,11 +163,12 @@ form {
 }
 
 input {
-  background-color: #eee;
-  border: 1px solid black;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid rgb(207, 207, 207);
   padding: 12px;
-  width: 70%;  
+  width: 80%;  
   outline: none;
+  border-radius: 50px;
 }
 
 .container {
@@ -173,8 +176,8 @@ input {
   width: 368px;
 }
 
-.lembre-se {
-  justify-content: space-around;
+.imag {
+  margin-top: 20px;
 }
 
 </style>
