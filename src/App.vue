@@ -4,10 +4,10 @@
       <form action="#">
         <img
           class="imag"
-          src="./assets/vamos.png"
+          src="./assets/meuPlano.png"
           alt="some text"
-          width="240"
-          height="200"
+          width="250"
+          height="100"
         />
         <div nome="email">
           <label>E-mail:</label>
@@ -49,7 +49,6 @@ export default {
       email: "",
       senha: "",
       logado: false,
-      deslogado: false
     };
   },
   methods: {
@@ -191,5 +190,10 @@ input {
 }
 .lembre-se {
   justify-content: space-around;
+}
+
+.imag {
+  margin: 10px;
+  margin-bottom: 30px;
 }
 </style>
