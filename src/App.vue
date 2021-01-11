@@ -1,41 +1,42 @@
 <template>
   <div class="container" id="app">
-    <div class="container-formulario logar-container">
+    <div class="container-formulario logar-container" v-if="!logado">
       <form action="#">
-        <h1>Tela de Login</h1>
-        <div>
-          <label>Nome:</label>
-          <input
-            type="text"
-            v-model="nome"
-            name="nome"
-            placeholder="Digite seu nome:"
-          />
-        </div>
-        <div>
+        <img
+          class="imag"
+          src="./assets/vamos.png"
+          alt="some text"
+          width="240"
+          height="200"
+        />
+        <div nome="email">
           <label>E-mail:</label>
           <input
             type="email"
             v-model="email"
             placeholder="Digite seu E-mail:"
+            required
           />
         </div>
-        <div>
+        <div nome="senha">
           <label>Senha:</label>
           <input
             type="password"
             v-model="senha"
             placeholder="Digite sua senha:"
+            required
           />
         </div>
-        <button @click="enviar">Entrar</button>
-        <div class="lembre-se">
-          <label>Lembre-se</label>
-          <input type="checkbox" v-model="senha"           
-          />
-        </div>
+        <button @click="entrar">Entrar</button>
         
       </form>
+    </div>
+    <div class="container-logado" v-else>
+    <form action="#">
+      <h2>Logado</h2>
+
+      <button @click="sair" padding="5px" >Sair</button>      
+    </form>
     </div>
   </div>
 </template>
@@ -47,14 +48,26 @@ export default {
       nome: "",
       email: "",
       senha: "",
+      logado: false,
+      deslogado: false
     };
   },
+  methods: {
+    entrar() {
+      this.logado = true
+    },
+    sair() {
+      this.logado = false
+    }
+  }
 };
 </script>
 
 <style>
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -65,7 +78,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
   height: 100vh;
   margin: -20px 0 50px;
   margin-left: 400px;
@@ -84,7 +96,7 @@ h1 {
 }
 
 label {
-  color: #ff4e50;
+  color: #d1b10f;
   color: -webkit-linear-gradient(to right, #f9d423, #ff4e50);
   color: linear-gradient(to right, #f9d423, #ff4e50);
   font-weight: 600;
@@ -109,17 +121,10 @@ button {
   letter-spacing: 1px;
   text-transform: uppercase;
   transition: transform 80ms ease-in;
-  background: #ff4e50; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #f9d423,
-    #ff4e50
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #f9d423,
-    #ff4e50
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: #ff4e50;
+  background: -webkit-linear-gradient(to right, #f9d423, #ff4e50);
+
+  background: linear-gradient(to right, #f9d423, #ff4e50);
 }
 
 button:active {
@@ -132,19 +137,31 @@ button:focus {
 
 button.ghost {
   background-color: transparent;
-  border-color: #ffffff;
+  border-color: #130b0b;
 }
 
 form {
   background-color: #ffffff;
   border-radius: 50px;
-  display: block;
+  display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: 50px;
-  margin: 30px;
+  padding: 30px;
+  margin: 5px;
   text-align: center;
+}
+.container-logado {
+  background-color: #ffffff;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  margin-right: 380px;
+  margin-top: 180px;
+
 }
 
 input {
@@ -158,7 +175,6 @@ input {
 .container {
   border-radius: 10px;
   position: relative;
-  overflow: hidden;
   width: 768px;
   max-width: 100%;
   min-height: 480px;
@@ -166,65 +182,14 @@ input {
 
 .container-formulario {
   position: absolute;
-  top: 0;
   height: 100%;
-  transition: all 0.6s ease-in-out;
 }
 
 .logar-container {
-  left: 0;
   width: 50%;
   z-index: 2;
 }
-
-.container.right-panel-active .logar-container {
-  transform: translateX(100%);
-}
-
-.sign-registrar-container {
-  left: 0;
-  width: 50%;
-  opacity: 0;
-  z-index: 1;
-}
-
-.container.right-panel-active .registrar-container {
-  transform: translateX(100%);
-  opacity: 1;
-  z-index: 5;
-  animation: show 0.6s;
-}
-
-@keyframes show {
-  0%,
-  49.99% {
-    opacity: 0;
-    z-index: 1;
-  }
-
-  50%,
-  100% {
-    opacity: 1;
-    z-index: 5;
-  }
-}
-
-.redes-sociais {
-  margin: 20px 0;
-}
-
-.redes-sociais a {
-  border: 1px solid #dddddd;
-  border-radius: 50%;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 5px;
-  height: 40px;
-  width: 40px;
-}
-
-.lembre-se {	
-justify-content: right;
+.lembre-se {
+  justify-content: space-around;
 }
 </style>
