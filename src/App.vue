@@ -9,16 +9,17 @@
           width="250"
           height="100"
         />
-        <div nome="email">
+        <RedesSociais />       
+        <div class="email" nome="email">
           <label>E-mail:</label>
-          <input
+          <input          
             type="email"
             v-model="email"
             placeholder="Digite seu E-mail:"
             required
           />
         </div>
-        <div nome="senha">
+        <div class="senha" nome="senha">
           <label>Senha:</label>
           <input
             type="password"
@@ -27,7 +28,7 @@
             required
           />
         </div>
-        <button @click="entrar">Entrar</button>
+        <button type="submit" @click="entrar">Entrar</button>
         
       </form>
     </div>
@@ -42,10 +43,12 @@
 </template>
 
 <script>
+import RedesSociais from './components/RedesSociais'
+
 export default {
+  components: { RedesSociais },
   data() {
     return {
-      nome: "",
       email: "",
       senha: "",
       logado: false,
@@ -53,6 +56,9 @@ export default {
   },
   methods: {
     entrar() {
+      if(this.email == "" || this.senha == "") {
+        return ;
+      }
       this.logado = true
     },
     sair() {
@@ -78,20 +84,6 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  margin: -20px 0 50px;
-  margin-left: 400px;
-}
-
-h1 {
-  font-weight: bold;
-  margin: 10;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  color: #ff4e50;
-  color: -webkit-linear-gradient(to right, #f9d423, #ff4e50);
-  color: linear-gradient(to right, #f9d423, #ff4e50);
 }
 
 label {
@@ -99,15 +91,16 @@ label {
   color: -webkit-linear-gradient(to right, #f9d423, #ff4e50);
   color: linear-gradient(to right, #f9d423, #ff4e50);
   font-weight: 600;
-  margin: 100px 10px 100px 10px;
+  width: 52px;
+  display: inline-block;
 }
 
 a {
   color: #333;
   font-size: 14px;
   text-decoration: none;
-  margin: 15px 0;
 }
+
 
 button {
   border-radius: 20px;
@@ -146,9 +139,15 @@ form {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  padding: 30px;
-  margin: 5px;
+  padding: 20px 30px 30px;
   text-align: center;
+}
+.senha {
+      margin: 10px 0;
+       width: 100%;
+}
+.email {
+      width: 100%;
 }
 .container-logado {
   background-color: #ffffff;
@@ -158,8 +157,6 @@ form {
   justify-content: center;
   flex-direction: column;
   text-align: center;
-  margin-right: 380px;
-  margin-top: 180px;
 
 }
 
@@ -167,33 +164,17 @@ input {
   background-color: #eee;
   border: 1px solid black;
   padding: 12px;
-  margin: 8px;
-  width: 100%;
+  width: 70%;  
+  outline: none;
 }
 
 .container {
   border-radius: 10px;
-  position: relative;
-  width: 768px;
-  max-width: 100%;
-  min-height: 480px;
+  width: 368px;
 }
 
-.container-formulario {
-  position: absolute;
-  height: 100%;
-}
-
-.logar-container {
-  width: 50%;
-  z-index: 2;
-}
 .lembre-se {
   justify-content: space-around;
 }
 
-.imag {
-  margin: 10px;
-  margin-bottom: 30px;
-}
 </style>

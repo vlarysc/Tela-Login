@@ -1,0 +1,80 @@
+<template>
+ <div class="redes-sociais">
+     <ul>
+  <li><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
+  <li><a href="#"><i class="fab fa-google-plus-g" aria-hidden="true"></i></a></li>
+  <li><a href="#"><i class="fab fa-linkedin" aria-hidden="true"></i></a></li>
+</ul>
+ </div>
+</template>
+
+<script>
+export default {
+
+}
+</script>
+
+<style>
+body {
+  margin:0;
+  padding:0;
+}
+
+ul {
+  margin:0;
+  padding:0;
+  display:flex;
+}
+
+ul li {
+  list-style: none;
+}
+
+.redes-sociais {
+    margin-bottom: 20px;
+}
+
+ul li a {
+  position: relative;
+  width:60px;
+  height:60px;
+  display:block;
+  text-align:center;
+  margin:0 10px;
+  border-radius: 50%;
+  padding: 6px;
+  box-sizing: border-box;
+  text-decoration:none;
+  box-shadow: 0 10px 15px rgba(0,0,0,0.3);
+  background: linear-gradient(0deg, #ddd, #fff);
+  transition: .5s;
+}
+
+ul li a:hover {
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  text-decoration:none;
+}
+
+ul li a .fab {
+  widht: 100%;
+  height:100%;
+  display:block;
+  background: linear-gradient(0deg, #fff, #ddd);
+  border-radius: 50%;
+  line-height: calc(60px - 12px);
+  font-size:24px;
+  color: #262626;
+  transition: .5s;
+}
+
+ul li:nth-child(1) a:hover .fab {
+  color: #3b5998;
+}
+
+ul li:nth-child(2) a:hover .fab {
+  color: #dd4b39;
+}
+ul li:nth-child(3) a:hover .fab {
+  color: #00aced;
+}
+</style>
